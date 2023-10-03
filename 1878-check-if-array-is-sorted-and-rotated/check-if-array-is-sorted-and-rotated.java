@@ -9,11 +9,14 @@ class Solution {
     }
     
     public boolean check(int[] nums) {
-        int x = findRotate(nums);
+        // int x = findRotate(nums);
         int n = nums.length;
-        int temp = 0 ;
-        for(int i=1; i<n; i++){
-            if(nums[(i-1+x)%n] >nums[(i+x)%n]){
+        int count = 0 ;
+        for(int i=0; i<n; i++){
+            if(nums[i] >nums[(i+1)%n]){
+              count++;
+            }
+            if(count>1){
                 return false;
             }
         }
